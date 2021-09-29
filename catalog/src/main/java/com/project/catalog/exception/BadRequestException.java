@@ -1,6 +1,6 @@
 package com.project.catalog.exception;
 
-public class BadRequestException extends BaseException{
+public class BadRequestException extends BaseException {
 
     public BadRequestException(String message, String errorCode) {
         super(message, errorCode);

@@ -1,0 +1,6 @@
+<div class="add-teacher-container" fxLayout="row" fxLayoutAlign="start center">
+  <button mat-raised-button color="primary" class="add-teacher" (click)="addTeacher()">Add Teacher</button>
+</div>
+<mat-list style="margin-top: 0px !important;">
+  <app-teacher (teacherListChanged)="onTeacherListChanged()" [teacher]="teacher" *ngFor="let teacher of teachers"></app-teacher>
+</mat-list>

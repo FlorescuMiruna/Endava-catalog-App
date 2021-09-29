@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'catalog-ui';
+  universityNameParent: string = 'Politehnica';
+
+  onUniversityNameChanged(universityName: string) {
+    this.universityNameParent = universityName;
+  }
 }

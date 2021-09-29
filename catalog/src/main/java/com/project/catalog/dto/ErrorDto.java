@@ -1,7 +1,6 @@
 package com.project.catalog.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,8 +13,5 @@ public class ErrorDto {
     private String errorCode;
     private String message;
     private Integer status;
-
-
-
 
 }

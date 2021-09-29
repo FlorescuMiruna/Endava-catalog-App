@@ -32,7 +32,6 @@ public class Teacher {
     @Column(name = "salary")
     private Long salary;
 
-
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "teacher_id")
     private List<Subject> subjects;
@@ -41,60 +40,60 @@ public class Teacher {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public LocalDate getEmploymentDate() {
-        return employmentDate;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public String getCnp() {
-        return cnp;
-    }
-
-    public Long getSalary() {
-        return salary;
-    }
-
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public LocalDate getEmploymentDate() {
+        return employmentDate;
     }
 
     public void setEmploymentDate(LocalDate employmentDate) {
         this.employmentDate = employmentDate;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getCnp() {
+        return cnp;
     }
 
     public void setCnp(String cnp) {
         this.cnp = cnp;
     }
 
+    public Long getSalary() {
+        return salary;
+    }
+
     public void setSalary(Long salary) {
         this.salary = salary;
+    }
+
+    public List<Subject> getSubjects() {
+        return subjects;
     }
 
     public void setSubjects(List<Subject> subjects) {

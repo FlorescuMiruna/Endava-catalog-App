@@ -1,0 +1,23 @@
+.subject-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-conatiner {
+  min-width: 700px;
+}
+
+.button {
+  margin: 20px 15px;
+}
+
+.subject-container-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.form-elem-container {
+  margin: 10px 20px;
+}

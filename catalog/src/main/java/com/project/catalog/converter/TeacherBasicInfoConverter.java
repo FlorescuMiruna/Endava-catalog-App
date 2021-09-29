@@ -1,8 +1,6 @@
 package com.project.catalog.converter;
 
-
 import com.project.catalog.dto.TeacherBasicInfoDto;
-import com.project.catalog.dto.TeacherDto;
 import com.project.catalog.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

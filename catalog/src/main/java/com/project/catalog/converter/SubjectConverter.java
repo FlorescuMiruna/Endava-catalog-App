@@ -15,7 +15,7 @@ public class SubjectConverter {
         SubjectDto subjectDto = new SubjectDto();
         subjectDto.setId(subject.getId());
         subjectDto.setName(subject.getName());
-        subjectDto.setOptional(subject.getOptional());
+        subjectDto.setIsOptional(subject.getIsOptional());
         subjectDto.setCreditPoints(subject.getCreditPoints());
         subjectDto.setSubjectScoring(new SubjectScoringDto(subject.getCoursePercent(), subject.getSeminaryPercent()));
 
@@ -32,7 +32,7 @@ public class SubjectConverter {
         Subject subject = new Subject();
         subject.setId(subjectDto.getId());
         subject.setName(subjectDto.getName());
-        subject.setOptional(subjectDto.getOptional());
+        subject.setIsOptional(subjectDto.getIsOptional());
         subject.setCreditPoints(subjectDto.getCreditPoints());
 
         if (subjectDto.getSubjectScoring() != null) {

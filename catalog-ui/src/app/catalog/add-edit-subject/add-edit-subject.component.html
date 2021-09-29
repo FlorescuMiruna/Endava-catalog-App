@@ -1,0 +1,64 @@
+<div class="form-conatiner">
+  <form #subjectForm="ngForm" (ngSubmit)="onSubjectSubmit(subjectForm)">
+    <mat-card>
+      <mat-card-title>
+        Subject
+      </mat-card-title>
+      <mat-card-content>
+        <div class="subject-container" >
+          <div class="subject-container-section">
+            <div class="form-elem-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Name:</mat-label>
+                <input matInput #name="ngModel" name="name" [ngModel]="subject.name" required>
+              </mat-form-field>
+            </div>
+            <div class="form-elem-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Credit Points:</mat-label>
+                <input matInput #creditPoints="ngModel" name="creditPoints" [ngModel]="subject.creditPoints" [pattern]="creditPointsRegex" required>
+                <mat-hint>Credit points must be min 1 and max 20.</mat-hint>
+                <mat-error *ngIf="creditPoints.hasError('pattern')">Credit points must be min 1 and max 20</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-elem-container">
+            <!--  <mat-form-field appearance="fill">-->
+                <mat-label>Optional:</mat-label>
+                <mat-slide-toggle #optional="ngModel" name="optional" [ngModel]="subject.isOptional">Optional</mat-slide-toggle>
+            </div>
+          </div>
+          <div class="subject-container-section">
+            <div class="form-elem-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Course Percent:</mat-label>
+                <input matInput #coursePercent="ngModel" name="coursePercent" (input)="computePercentage(subjectForm)" [ngModel]="subject.subjectScoring.coursePercent" required>
+                <mat-hint>Sum of Course and Seminary percentage must be 100.</mat-hint>
+                <mat-error *ngIf="coursePercent.hasError('incorrect')">Sum of Course and Seminary percentage must be 100.</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-elem-container">
+              <mat-form-field appearance="fill">
+                <mat-label>Seminary Percent:</mat-label>
+                <input matInput #seminaryPercent="ngModel" name="seminaryPercent" (input)="computePercentage(subjectForm)" [ngModel]="subject.subjectScoring.seminaryPercent" required>
+                <mat-hint>Sum of Course and Seminary percentage must be 100.</mat-hint>
+                <mat-error *ngIf="seminaryPercent.hasError('incorrect')">Sum of Course and Seminary percentage must be 100.</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+      <span>
+        <button type="submit" mat-raised-button color="primary" class="button">
+          <span *ngIf="!isEditMode">Save Subject</span>
+          <span *ngIf="isEditMode">Update Subject</span>
+        </button>
+      </span>
+        <span>
+        <button type="button" mat-raised-button color="primary" class="button" (click)="close()">X Close</button>
+      </span>
+      </mat-card-footer>
+    </mat-card>
+  </form>
+</div>

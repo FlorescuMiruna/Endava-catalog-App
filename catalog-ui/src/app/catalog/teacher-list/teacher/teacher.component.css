@@ -1,0 +1,9 @@
+mat-icon {
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.teacher-details {
+  font-weight: 500;
+  color: darkslategray;
+}

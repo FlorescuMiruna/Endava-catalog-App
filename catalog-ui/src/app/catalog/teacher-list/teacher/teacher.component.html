@@ -1,0 +1,8 @@
+<mat-list-item>
+  <mat-icon matTooltip="Delete teacher" (click)="deleteTeacher()">delete_forever</mat-icon>
+  <mat-icon matTooltip="Edit teacher" (click)="editTeacher()">edit</mat-icon>
+  <span class="teacher-details">
+    {{teacher.firstName}} {{teacher.lastName}}
+  </span>
+</mat-list-item>
+<mat-divider></mat-divider>

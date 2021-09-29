@@ -69,7 +69,7 @@ public class SubjectService {
         if (subjectOptional.isPresent()) {
             subjectUpdated.setId(id);
             subjectUpdated.setName(subjectUpdated.getName() == null ? subjectOptional.get().getName() : subjectUpdated.getName());
-            subjectUpdated.setOptional(subjectUpdated.getOptional() == null ? subjectOptional.get().getOptional() : subjectUpdated.getOptional());
+            subjectUpdated.setIsOptional(subjectUpdated.getIsOptional() == null ? subjectOptional.get().getIsOptional() : subjectUpdated.getIsOptional());
             subjectUpdated.setCreditPoints(subjectUpdated.getCreditPoints() == null ? subjectOptional.get().getCreditPoints() : subjectUpdated.getCreditPoints());
             subjectUpdated.setCoursePercent(subjectUpdated.getCoursePercent() == null ? subjectOptional.get().getCoursePercent() : subjectUpdated.getCoursePercent());
             subjectUpdated.setSeminaryPercent(subjectUpdated.getSeminaryPercent() == null ? subjectOptional.get().getSeminaryPercent() : subjectUpdated.getSeminaryPercent());

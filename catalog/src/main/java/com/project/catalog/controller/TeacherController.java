@@ -14,15 +14,23 @@ import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+    @RestController annotation means that this class will be a Bean (managed by spring) and will contain endpoints
+    (an endpoint is a method that handles HTTP requests end returns a HTTP response)
+    @ResponseBody annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
+ */
 
 //@Controller
 //@ResponseBody
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/teacher")
 public class TeacherController {
-
+    /*
+        the controllers usually shouldn't have much logic in them
+        they should call services to retrieve needed data, perform validations
+        most of the logic should be in the services
+     */
 
     private final TeacherService teacherService;
     private final TeacherConverter teacherConverter;
@@ -95,8 +103,8 @@ public class TeacherController {
     @PostMapping("")
     public TeacherDto saveTeacher(@Valid @RequestBody TeacherDto teacherDto) {
         Teacher teacher = teacherConverter.maptoEntity(teacherDto);
-        List<Subject> subjectLis = teacher.getSubjects();
-        subjectLis.forEach(s -> s.setId(null));
+     /*   List<Subject> subjectLis = teacher.getSubjects();
+        subjectLis.forEach(s -> s.setId(null));*/
         teacher = teacherService.saveTeacher(teacher);
 
         return teacherConverter.maptoDto(teacher);

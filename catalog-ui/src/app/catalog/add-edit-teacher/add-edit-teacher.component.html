@@ -1,0 +1,72 @@
+<div class="form-conatiner">
+  <form #teacherForm="ngForm" (ngSubmit)="onTeacherSubmit(teacherForm)">
+  <mat-card>
+    <mat-card-title>
+      Teacher
+    </mat-card-title>
+    <mat-card-content>
+      <div class="teacher-container" >
+        <div class="teacher-container-section">
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>First Name:</mat-label>
+              <input matInput #firstName="ngModel" name="firstName" [ngModel]="teacher.firstName" required>
+            </mat-form-field>
+          </div>
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name:</mat-label>
+              <input matInput #lastName="ngModel" name="lastName" [ngModel]="teacher.lastName" required>
+            </mat-form-field>
+          </div>
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Birth Date:</mat-label>
+              <input matInput [matDatepicker]="picker" #birthDate="ngModel" name="birthDate" [ngModel]="teacher.birthDate" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="teacher-container-section">
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Cnp:</mat-label>
+              <input matInput #cnp="ngModel" name="cnp" [ngModel]="teacher.cnp"  [pattern]="cnpPattern" required>
+              <mat-hint style="color:darkblue;">Numeric value. Size 13.</mat-hint>
+              <mat-error *ngIf="cnp.hasError('pattern')"> Cnp must be numeric and of size 13.</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Salary:</mat-label>
+              <input matInput #salary="ngModel" name="salary" [ngModel]="teacher.salary" [pattern]="salaryPattern" required>
+              <mat-error *ngIf="salary.hasError('pattern')">Salary must be numeric.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-elem-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Employment Date:</mat-label>
+              <input matInput [matDatepicker]="pickerTwo" #employmentDate="ngModel" name="employmentDate" [ngModel]="teacher.employmentDate" required>
+              <mat-datepicker-toggle matSuffix [for]="pickerTwo"></mat-datepicker-toggle>
+              <mat-datepicker #pickerTwo></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <span>
+        <button type="submit" mat-raised-button color="primary" class="button">
+          <span *ngIf="!isEditMode">Save Teacher</span>
+          <span *ngIf="isEditMode">Update Teacher</span>
+        </button>
+      </span>
+      <span>
+        <button type="button" mat-raised-button color="primary" class="button" (click)="close()">X Close</button>
+      </span>
+    </mat-card-footer>
+  </mat-card>
+</form>
+</div>
